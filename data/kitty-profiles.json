@@ -1,0 +1,40 @@
+[
+	{
+		"id": "grumpy-cat",
+		"url": "grumpy-cat",
+		"name": "Grumpy Cat",
+		"description": "While your pet may exhibit the occasional good trait, in general this animal has an exceptionally bad attitude. Scheduling recommendations include meditation and behavioral therapy. After many years of treatment, we hope to integrate outsiders like your kitty into group activities.",
+		"imagepath": "Grumpy-Cat.jpg"
+	},
+	{
+		"id": "hipster-cat",
+		"url": "hipster-cat",
+		"name": "Hipster Cat",
+		"description": "You often find your kitty lounging about the house in uncomfortably tight denims, casually paging through your (otherwise untouched) copy of Infinite Jest. Hipster cats flourish in our seminars and excercise classes - basically, your kitty is suited to any large group activity where it can still profess to be a loner.",
+		"imagepath": "HamiltonHipster-Cat.jpg"
+	},
+	{
+		"id": "pudge-cat",
+		"url": "pudge-cat",
+		"name": "Pudge Cat",
+		"description": "You have been blessed with a rare breed indeed: a congenial, people-pleasing kitty. Your kitty is not very bright but totally adorable in every way. Don't push this animal into challenging academics. Pudge cats should focus on grooming and charm classes.",
+		"imagepath": "Pudge-Cat.jpg"
+	},
+	{
+		"id": "lilbub-cat",
+		"url": "lilbub-cat",
+		"name": "Lil Bub Cat",
+		"description": "You have a weird and wacky kitty...",
+		"imagepath": "LilBub-Cat.jpg"
+	},
+	{
+		"id": "colonel-meow",
+		"url": "colonel-meow",
+		"name": "Colonel Meow",
+		"description": "May he rest in peace. Mew.",
+		"imagepath": "ColonelMeow-Cat.jpg"
+	}
+
+
+
+]

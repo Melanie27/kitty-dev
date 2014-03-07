@@ -1,0 +1,75 @@
+[
+	{
+		"id": "favorite-food",
+		"url": "favorite-food",
+		"name": "Favorite Food",
+		"question": "Which of the following best describes your kitty's palatte?",
+		"answers": {
+			"Grumpy" : "Fresh Water Salmon, no bones, served on china",
+			"Hipster" : "Nothing - trying to fit into newer, tighter jeans",
+			"Pudge" : "Anything and everything my owner is eating",
+			"Bub" : "Mice",
+			"Meow" : "Roaches"
+
+		}
+	},
+	{
+		"id": "favorite-band",
+		"url": "favorite-bane",
+		"name": "Favorite Band",
+		"question": "Your kitty claws at you desperatly when it wants to listen to:",
+		"answers": {
+			"Bub" : "Country",
+			"Grumpy" : "Mozart. Popular music is for the plebs.",
+			"Pudge" : "z100",
+			"Meow" : "Very heavy metal",
+			"Hipster" : "something long winded"
+
+		}
+	},
+	{
+		"id": "favorite-hideout",
+		"url": "favorite-hideout",
+		"name": "Favorite Hideout",
+		"question": "You are most likely to find your beast perched here:",
+		"answers": {
+			"Bub" : "On your shoulder",
+			"Grumpy" : "Alone. Anywhere, just alone.",
+			"Pudge" : "In the fridge",
+			"Meow" : "Herding other cats",
+			"Hipster" : "Outside, smoking."
+
+		}
+	},
+	{
+		"id": "favorite-friends",
+		"url": "favorite-friends",
+		"name": "Favorite Friends",
+		"question": "Your kitty generally gets along with:",
+		"answers": {
+			"Bub" : "Other cats",
+			"Grumpy" : "No one.",
+			"Pudge" : "Humans, animals, whoever.",
+			"Meow" : "Obedient animals",
+			"Hipster" : "dogs"
+
+		}
+	},
+	{
+		"id": "favorite-celebrity",
+		"url": "favorite-celebrity",
+		"name": "Favorite Celebrity",
+		"question": "May he rest in peace. Mew.",
+		"answers": {
+			"Bub" : "Meg Ryan",
+			"Grumpy" : "Jack Nicholson",
+			"Pudge" : "John Candy",
+			"Meow" : "Does General McArthur count?",
+			"Hipster" : "Zooey Deschanel"
+
+		}
+	}
+
+
+
+]
