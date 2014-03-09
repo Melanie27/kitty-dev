@@ -2,6 +2,7 @@ var express = require('express'),
   http = require('http'),
   items = require('./data/menu-items');
   profiles = require('./data/kitty-profiles');
+  questions = require('./data/kitty-survey');
 
 var app = express()
   .use(express.bodyParser())
@@ -15,6 +16,11 @@ app.get('/items', function  (req, res) {
 //get the json for kitty profiles
 app.get('/profiles', function  (req, res) {
   res.json(profiles);
+});
+
+//get the json for the kitty questions
+app.get('/questions', function(req, res) {
+  res.json(questions);
 });
 
 app.post('/items', function  (req, res) {
@@ -45,6 +51,21 @@ app.get('/items/:item_name', function  (req, res) {
 
 });
 
+//filter individual kitty questions
+//construct a new jquery object from the urls matching subset - individual urls for each kitty type
+app.get('/questions/:question_name', function (req, res) {
+  var matches = questions.filter(function (question) {
+    return question.url === req.params.question_name;
+  });
+
+  if (matches.length > 0) {
+    res.json(matches[0]);
+  } else {
+    res.json(404, {status: 'Invalid question type'});
+  }
+
+  });
+
 //filter individual kitty profiles
 //construct a new jquery object from the urls matching subset - individual urls for each kitty type
 app.get('/profiles/:profile_name', function (req, res) {
@@ -59,6 +80,8 @@ app.get('/profiles/:profile_name', function (req, res) {
   }
 
 });
+
+
 
 app.delete('/items/:item_name', function  (req, res) {
 

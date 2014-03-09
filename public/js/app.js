@@ -24,7 +24,7 @@ var app = new AppRouter();
 var AppRouterK = Backbone.Router.extend({
 	routes: {
 		"kitty-profiles/": "profiles",
-		"kitty/survey" : "startSurvey",
+		"kitty/survey/:questions" : "startSurvey",
 		"kitty-profiles/new" : "profileForm",
 		"kitty-profiles/:profile" : "profileDetails",
 		"categories/:sides" : "profileSides",
@@ -35,6 +35,22 @@ var AppRouterK = Backbone.Router.extend({
 
 	initialize: function () {
 		
+		
+		this.kittySurveyView = new KittySurveyQuestion (
+			{
+				
+				name: 'Favorite Band',
+				question: 'Your kitty claws at you desperatly when it wants to listen to:',
+				answers: {
+					Bub : 'Country',
+					Grumpy : 'Mozart. Popular music is for the plebs.',
+					Pudge : 'z100',
+					Meow : 'Very heavy metal',
+					Hipster : 'something long winded'
+				}
+			}
+		);
+
 		//keeps track of all kitty profiles
 		this.kittyProfiles = new KittyProfiles();
 		this.kittyProfiles.fetch();
@@ -108,22 +124,7 @@ var AppRouterK = Backbone.Router.extend({
 
 	startSurvey: function() {
 		//$('#app2').html('kitty survey yo');
-		var view = new KittySurveyQuestion (
-			{
-				
-				name: 'Favorite Band',
-				question: 'Your kitty claws at you desperatly when it wants to listen to:',
-				answers: {
-					Bub : 'Country',
-					Grumpy : 'Mozart. Popular music is for the plebs.',
-					Pudge : 'z100',
-					Meow : 'Very heavy metal',
-					Hipster : 'something long winded'
-				}
-			}
-		);
-
-		$('#app2').html(view.render().el);
+		$('#app2').html(this.kittySurveyView.render().el);
 		
 	}
 

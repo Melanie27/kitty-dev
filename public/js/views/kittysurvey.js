@@ -14,8 +14,7 @@ var KittySurveyQuestion = Backbone.View.extend ({
 		'<div>' +
 		'<h1>{{name}}</h1>' +
 		'<p><span class="label">{{question}}</span></p>' +
-		'<p><span class="label">{{#each answers}}<li>{{answers}}</li>{{/each}}</span></p>' +
-		
+		'{{#each answers}} <a href="#"><li>{{this}} </li></a>{{/each}} ' +
 			
 
 		'</div>'
@@ -23,6 +22,7 @@ var KittySurveyQuestion = Backbone.View.extend ({
 
 	render: function () {
 		this.$el.html(this.template(this.options));
+		//return this allows us to chain function calls
 		return this;
 	}
 
