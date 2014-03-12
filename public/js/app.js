@@ -24,7 +24,8 @@ var app = new AppRouter();
 var AppRouterK = Backbone.Router.extend({
 	routes: {
 		"kitty-profiles/": "profiles",
-		"kitty/survey/:questions" : "startSurvey",
+		"kitty-survey/:questions" : "startSurvey",
+		"kitty-survey/list" : "listSurvey",
 		"kitty-profiles/new" : "profileForm",
 		"kitty-profiles/:profile" : "profileDetails",
 		"categories/:sides" : "profileSides",
@@ -35,20 +36,28 @@ var AppRouterK = Backbone.Router.extend({
 
 	initialize: function () {
 		
-		
-		this.kittySurveyView = new KittySurveyQuestion (
-			{
+		//create the collection object
+		this.kittyQuestions = new KittyQuestions();
+		this.kittyQuestions.fetch();
+
+		//create the model object
+		this.kittySurveyModel = new KittySurvey();
+		this.kittySurveyView = new KittySurveyQuestion( 
 				
-				name: 'Favorite Band',
-				question: 'Your kitty claws at you desperatly when it wants to listen to:',
-				answers: {
-					Bub : 'Country',
-					Grumpy : 'Mozart. Popular music is for the plebs.',
-					Pudge : 'z100',
-					Meow : 'Very heavy metal',
-					Hipster : 'something long winded'
+				{
+					model: this.kittySurveyModel
 				}
+			);
+
+		//this.surveyView = new SurveyView({collection: this.kittyQuestions});
+
+		this.surveyList = new SurveyList();
+		this.surveyView = new SurveyView( 
+				
+			{
+				model: this.surveyList
 			}
+
 		);
 
 		//keeps track of all kitty profiles
@@ -70,12 +79,6 @@ var AppRouterK = Backbone.Router.extend({
 		this.profileView = new ProfileView({collection: this.kittyProfiles});
 		this.kittyProfileForm = new KittyProfileForm({model: new KittyProfile()});
 
-		/*this.profileList = new ProfileList();
-		this.profileView = new ProfileView(
-			{
-				model: this.profileList
-			}
-		);*/
 
 		this.sidesView = new SidesView (
 			{
@@ -122,11 +125,18 @@ var AppRouterK = Backbone.Router.extend({
 		$('#app2').html(this.kittyProfileForm.render().el);
 	},
 
-	startSurvey: function() {
-		//$('#app2').html('kitty survey yo');
-		$('#app2').html(this.kittySurveyView.render().el);
+	startSurvey: function(question) {
+
+		this.kittySurveyModel.set('id', question);
+		this.kittySurveyModel.fetch();
+		//$('#app2').html(this.kittySurveyView.render().el);
 		
-	}
+	},
+
+	listSurvey: function () {
+		$('#app2').html(this.surveyView.render().el);
+		console.log('list survey');
+	},
 
 });
 

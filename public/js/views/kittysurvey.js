@@ -1,27 +1,22 @@
 var KittySurveyQuestion = Backbone.View.extend ({
-	/*render: function () {
-		var markup = '<div>' +
-		'<h1>' + this.options.name + '</h1>' +
-		'<h2>' + this.options.question + '</h2>' +
-		'</div>';
-
-		this.$el.html(markup);
-		return this;
-
-	}*/
 
 	template: Handlebars.compile (
 		'<div>' +
 		'<h1>{{name}}</h1>' +
 		'<p><span class="label">{{question}}</span></p>' +
-		'{{#each answers}} <a href="#"><li>{{this}} </li></a>{{/each}} ' +
-			
 
+		'{{#each answers}}<li><input type="radio" name="{{this}}" value="{{this}}"> {{this}}</li>{{/each}}' +
+
+		'<button type="button" class="btn btn-danger">Next</button>' +
 		'</div>'
 	),
 
+	initialize: function () {
+		this.listenTo(this.model, "change", this.render);
+	},
+
 	render: function () {
-		this.$el.html(this.template(this.options));
+		this.$el.html(this.template(this.model.attributes));
 		//return this allows us to chain function calls
 		return this;
 	}
